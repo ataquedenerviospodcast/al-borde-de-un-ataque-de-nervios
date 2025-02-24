@@ -4,9 +4,10 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0A0A0A;
+    background-color: #1a1a1a; /* Negro */
     color: #FFF;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .container {
@@ -17,14 +18,18 @@ body {
 }
 
 header {
-    background: #111;
+    background: #111; /* Negro */
     padding: 20px 0;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
 h1 {
     font-size: 2.5em;
     font-weight: 700;
+    color: #FF69B4; /* Rosa */
 }
 
 nav ul {
@@ -41,58 +46,85 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #00FF99;
+    color: #FF69B4; /* Rosa */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #FFF;
+    color: #9370DB; /* Morado */
 }
 
 .hero {
-    background: linear-gradient(135deg, #00FF99, #0077FF);
-    padding: 80px 20px;
+    background: linear-gradient(135deg, #FF69B4, #9370DB); /* De rosa a morado */
+    padding: 100px 20px;
     border-radius: 20px;
     margin: 40px auto;
     width: 90%;
     max-width: 800px;
-    box-shadow: 0px 4px 20px rgba(0, 255, 153, 0.4);
+    box-shadow: 0px 4px 20px rgba(255, 105, 180, 0.4); /* Sombra rosa */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hero::before {
+    top: -50px;
+    left: -50px;
+}
+
+.hero::after {
+    bottom: -50px;
+    right: -50px;
 }
 
 .btn {
     display: inline-block;
     padding: 15px 25px;
-    background: #00FF99;
-    color: #0A0A0A;
+    background: #FF69B4; /* Rosa */
+    color: #0A0A0A; /* Negro */
     text-decoration: none;
     font-weight: bold;
     border-radius: 8px;
     transition: background 0.3s, transform 0.2s;
+    position: relative;
+    z-index: 2;
 }
 
 .btn:hover {
-    background: #0077FF;
+    background: #9370DB; /* Morado */
     transform: scale(1.05);
 }
 
 section {
     padding: 50px 0;
+    position: relative;
+    z-index: 2;
 }
 
 div.episodio iframe {
     border-radius: 12px;
-    box-shadow: 0px 4px 20px rgba(0, 255, 153, 0.2);
+    box-shadow: 0px 4px 20px rgba(255, 105, 180, 0.2); /* Sombra rosa */
 }
 
 footer {
-    background: #111;
+    background: #111; /* Negro */
     padding: 30px 0;
     text-align: center;
     position: relative;
     bottom: 0;
     width: 100%;
+    z-index: 10;
 }
 
 .social-icons {
@@ -114,30 +146,11 @@ footer {
     height: 40px;
 }
 
-/* Media Queries for Mobile Devices */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    .hero {
-        padding: 60px 20px;
-        margin: 20px auto;
-    }
-
-    .btn {
-        padding: 10px 20px;
-    }
-
-    section {
-        padding: 30px 20px;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-}
+/* Geometric Shapes */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 105, 180, 0.1);
+    clip-path: polygon(50% 0
